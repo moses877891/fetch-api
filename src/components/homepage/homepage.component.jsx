@@ -67,7 +67,6 @@ const Homepage = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        // writeFile(convertedWorkSheet, "gender-generator", { compression: true })
     }
 
     return (
@@ -75,41 +74,22 @@ const Homepage = () => {
             {
                 loading ? <Spinner /> : (
                     <div className="mt-4">
-                        <p className=' mt-2 text-center font-medium text-2xl text-neutral-900 uppercase'>Predict Gender</p>
+                        <p className=' mt-2 text-center font-medium text-2xl text-neutral-900 uppercase'>
+                            Predict Gender
+                        </p>
                         <form onSubmit={handleSubmit} className="mx-4 mt-20 flex flex-col items-center">
-                            {/*<button type="button" onClick={handleChange}
-                                className="p-5 rounded-xl bg-neutral-300 w-1/3">
-                                Upload File
-                            </button>*/}
                             <input type="file" onChange={handleChange} />
                             {/* fileName */}
-                            <div className="px-4 my-2 relative text-slate-700 w-1/3 text-center">
+                            <div className="px-4 my-2 relative text-slate-700 w-1/3 text-center font">
                                 {
-                                    nameDetails && <p className="bg-stone-100 py-1 rounded-lg ">{nameDetails}</p>
+                                    nameDetails && <p className="bg-stone-100 py-1 rounded-lg ">
+                                        {nameDetails}
+                                    </p>
                                 }
                             </div>
                             {/*<button type='submit' className=' uppercase w-1/3
                                      bg-neutral-600 text-neutral-100 rounded-md my-2 p-1'>
                             Submit</button>*/}
-                            {/* Filestack */}
-                            {/*<div className="mt-4 relative">
-                                {
-                                    isPicker && (
-                                        <PickerOverlay apikey="AejE2f2BNSjOmaMgcnJUhz"
-                                            onSuccess={(res) => {
-                                                setFile(res);
-                                                setNameDetails(res.filesUploaded[0].filename);
-                                                // setNameDetails(res);
-                                                setIsPicker(!isPicker);
-                                            }}
-                                            pickerOptions={{
-                                                onClose: () => setIsPicker(!isPicker)
-                                            }}
-                                        // onUploadDone={(res) => console.log(res)}
-                                        />
-                                    )
-                                }
-                            </div>*/}
                             <ExportCSV csvData={list} fileName="gender-generator" />
                         </form>
                     </div>
