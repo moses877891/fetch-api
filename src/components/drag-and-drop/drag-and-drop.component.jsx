@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { FileUploader } from 'react-drag-drop-files';
 import DragElement from './drag-element.compoment';
 
@@ -8,10 +8,9 @@ import { FileContext } from '../context/file.context';
 
 
 const DragFile = () => {
-    const { setFile, fileName, setFileName, setLoading } = useContext(FileContext);
+    const { setFile, fileName, setFileName, setLoading, loading } = useContext(FileContext);
 
     const fetchApi = async (form_name, newWorkSheet, index) => {
-        setLoading(true);
         const example_fetch = await fetch(`https://api.genderize.io/?name=${form_name}`)
             .then(response => response.json())
             .then(res =>
@@ -26,6 +25,7 @@ const DragFile = () => {
     }
 
     const handleChange = async (file) => {
+        setLoading(true);
         setFileName(file.name);
         const data = await file.arrayBuffer();
         const workbook = read(data);
@@ -35,7 +35,7 @@ const DragFile = () => {
         jsonData.forEach(async (name) => {
             const index = name.__rowNum__ + 1;
             await fetchApi(name.Name, newWorkSheet, index);
-            if (index === jsonData.length) {
+            if (name.__rowNum__ === jsonData.length) {
                 setLoading(false);
             }
         })
