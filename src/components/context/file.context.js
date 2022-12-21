@@ -6,13 +6,16 @@ export const FileContext = createContext({
     loading: false,
     setLoading: () => { },
     fileName: '',
-    setFileName: () => { }
+    setFileName: () => { },
+    showButton: false,
+    setShowButton: () => { }
 });
 
 export const FileProvider = ({ children }) => {
     const [file, setFile] = useState('');
     const [loading, setLoading] = useState(false);
     const [fileName, setFileName] = useState('');
+    const [showButton, setShowButton] = useState(false);
 
     const value = {
         file,
@@ -20,7 +23,9 @@ export const FileProvider = ({ children }) => {
         loading,
         setLoading,
         fileName,
-        setFileName
+        setFileName,
+        showButton,
+        setShowButton
     }
     return <FileContext.Provider value={value} >{children}</FileContext.Provider>
 }

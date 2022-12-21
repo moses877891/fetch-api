@@ -1,5 +1,4 @@
-import { useState, useContext } from "react";
-import { read, utils } from "xlsx";
+import { useContext } from "react";
 import DragFile from "../drag-and-drop/drag-and-drop.component";
 // import Dropzone from "../drag-and-drop/drag-drop-file.component";
 // import { PickerOverlay } from 'filestack-react'
@@ -10,7 +9,7 @@ import ExportCSV from "../export-to-csv/export-to-csv.component";
 import Spinner from "../spinner/spinner.component";
 
 const Homepage = () => {
-    const { file, loading } = useContext(FileContext);
+    const { file, loading, fileName } = useContext(FileContext);
 
     // const [isPicker, setIsPicker] = useState(false);
 
@@ -67,8 +66,9 @@ const Homepage = () => {
                         </p>
                         <form onSubmit={handleSubmit} className="mx-4 mt-20 flex flex-col items-center">
                             <DragFile />
-                            {/* fileName */}
-                            <ExportCSV csvData={file} fileName="gender-generator" />
+                            {
+                                fileName && <ExportCSV csvData={file} fileName="gender-generator" />
+                            }
                         </form>
                     </div>
                 )

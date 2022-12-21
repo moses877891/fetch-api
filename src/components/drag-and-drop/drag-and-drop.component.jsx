@@ -8,7 +8,7 @@ import { FileContext } from '../context/file.context';
 
 
 const DragFile = () => {
-    const { setFile, fileName, setFileName, setLoading, loading } = useContext(FileContext);
+    const { setFile, fileName, setFileName, setLoading } = useContext(FileContext);
 
     const fetchApi = async (form_name, newWorkSheet, index) => {
         setLoading(true);
