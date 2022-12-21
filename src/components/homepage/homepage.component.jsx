@@ -3,7 +3,7 @@ import DragFile from "../drag-and-drop/drag-and-drop.component";
 // import Dropzone from "../drag-and-drop/drag-drop-file.component";
 // import { PickerOverlay } from 'filestack-react'
 
-import { FileContext } from "../context/file.context";
+import { FileContext } from "../../context/file.context";
 
 import ExportCSV from "../export-to-csv/export-to-csv.component";
 import Spinner from "../spinner/spinner.component";

@@ -4,7 +4,7 @@ import DragElement from './drag-element.compoment';
 
 import { read, utils } from 'xlsx';
 
-import { FileContext } from '../context/file.context';
+import { FileContext } from '../../context/file.context';
 
 
 const DragFile = () => {

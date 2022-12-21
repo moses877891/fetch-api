@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import { FileContext } from "../context/file.context";
+import { FileContext } from "../../context/file.context";
 
 const DragElement = () => {
     const { fileName } = useContext(FileContext);

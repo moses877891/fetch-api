@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.scss';
 import App from './App';
 
-import { FileProvider } from './components/context/file.context';
+import { FileProvider } from './context/file.context';
 
 import reportWebVitals from './reportWebVitals';
 

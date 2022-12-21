@@ -2,7 +2,7 @@ import * as FileSaver from 'file-saver';
 import * as XLSX from 'xlsx';
 import { useContext } from 'react';
 
-import { FileContext } from '../context/file.context';
+import { FileContext } from '../../context/file.context';
 
 const ExportCSV = () => {
     const { file } = useContext(FileContext);
