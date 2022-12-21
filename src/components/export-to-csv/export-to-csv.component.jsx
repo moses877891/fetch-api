@@ -17,7 +17,7 @@ const ExportCSV = ({ csvData, fileName }) => {
 
     return (
         <button variant="warning" type="submit" className='uppercase w-1/3
-        bg-neutral-600 text-neutral-100 rounded-md my-2 p-1'
+        bg-neutral-600 text-neutral-100 rounded-md my-8 p-1'
             onClick={(e) => exportToCSV(csvData, fileName)}>Export</button>
     )
 }

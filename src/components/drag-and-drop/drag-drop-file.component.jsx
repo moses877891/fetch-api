@@ -1,17 +1,21 @@
-import { useDropzone } from "React-dropzone";
+import { useDropzone } from 'react-dropzone';
 
-const Dropzone = ({ open }) => {
-    const { getRootProps, getInputProps } = useDropzone({});
+function Dropzone({ open }) {
+    const { getRootProps, getInputProps, acceptedFiles } = useDropzone({});
+
+
+
     return (
         <div {...getRootProps({ className: "dropzone" })}>
             <input className="input-zone" {...getInputProps()} />
             <div className="text-center">
                 <p className="dropzone-content">
-                    Drag and drop some files here, or click to select files
+                    Drag’n’drop some files here, or click to select files
                 </p>
                 )
             </div>
         </div>
     );
 }
+
 export default Dropzone;
