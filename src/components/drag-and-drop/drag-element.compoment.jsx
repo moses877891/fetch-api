@@ -1,10 +1,14 @@
+import { useContext } from "react";
 
+import { FileContext } from "../context/file.context";
 
-const DragElement = ({ name }) => {
+const DragElement = () => {
+    const { fileName } = useContext(FileContext);
+
     return (
         <div className=' border border-black border-dashed py-8 px-52'>
             {
-                name ? (<span><span className="text-red-600">{name}</span> file uploaded</span>) : (
+                fileName ? (<span><span className="text-red-600">{fileName}</span> file uploaded</span>) : (
                     <div className="grid grid-cols-3">
                         <div className="flex flex-col">
                             <p className="text-neutral-500">
