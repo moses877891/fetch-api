@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { FileUploader } from 'react-drag-drop-files';
 import DragElement from './drag-element.compoment';
 
@@ -6,9 +6,10 @@ import { read, utils } from 'xlsx';
 
 import { FileContext } from '../../context/file.context';
 
+const fileTypes = ["xlsx"];
 
 const DragFile = () => {
-    const { setFile, fileName, setFileName, setLoading, loading } = useContext(FileContext);
+    const { setFile, fileName, setFileName, setLoading } = useContext(FileContext);
 
     const fetchApi = async (form_name, newWorkSheet, index) => {
         const example_fetch = await fetch(`https://api.genderize.io/?name=${form_name}`)
@@ -45,6 +46,7 @@ const DragFile = () => {
         <div>
             <FileUploader
                 handleChange={handleChange}
+                types={fileTypes}
                 name="file"
                 label="upload your excel sheet Drag and Drop file"
                 dropMessageStyle={{ backgroundColor: 'green' }}
